@@ -68,11 +68,11 @@ A template repository for Python development
    tox
    ```
 
-8. Add all new files via `git add`.
+9. Add all new files via `git add`.
 
-9. Do a dry-run of all pre-commit checks:
+10. Do a dry-run of all pre-commit checks:
    ```bash
    pre-commit run --all-files
    ```
 
-10. Commit and push your code, then check result of GitHub actions.
+11. Commit and push your code, then check result of GitHub actions.
