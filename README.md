@@ -71,8 +71,8 @@ A template repository for Python development
 9. Add all new files via `git add`.
 
 10. Do a dry-run of all pre-commit checks:
-   ```bash
-   pre-commit run --all-files
-   ```
+    ```bash
+    pre-commit run --all-files
+    ```
 
 11. Commit and push your code, then check result of GitHub actions.
