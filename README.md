@@ -36,7 +36,7 @@ A template repository for Python development
    ```bash
    python -m venv venv
    ```
-   Then activate it (do this everytime you work on the project):
+   Then activate it (do this every time you work on the project):
    ```bash
    . venv/bin/activate
    ```
