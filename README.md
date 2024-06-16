@@ -16,7 +16,7 @@ A template repository for Python development
    pyenv install 3.12
    pyenv global 3.12
    ```
-   To allows multi-version testing, install multiple versions, e.g.:
+   To allow multi-version testing, install multiple versions, e.g.:
    ```bash
    pyenv install 3.12 3.11 3.10
    pyenv global 3.12 3.11 3.10
@@ -71,8 +71,8 @@ A template repository for Python development
 9. Add all new files via `git add`.
 
 10. Do a dry-run of all pre-commit checks:
-   ```bash
-   pre-commit run --all-files
-   ```
+    ```bash
+    pre-commit run --all-files
+    ```
 
 11. Commit and push your code, then check result of GitHub actions.
