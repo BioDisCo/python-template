@@ -1,0 +1,18 @@
+name: static analysis
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  static-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+      - uses: chartboost/ruff-action@v1
+      - uses: chartboost/ruff-action@v1
+        with:
+          args: "format --check"
+      - uses: jakebailey/pyright-action@v2
