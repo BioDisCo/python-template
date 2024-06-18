@@ -6,19 +6,15 @@ build-backend = "hatchling.build"
 name = "multiplier"
 dynamic = ["version", "dependencies"]
 requires-python = ">=3.10"
-authors = [
-  {name = "Thomas Nowak", email = "thomas@thomasnowak.net"}
-]
-maintainers = [
-  {name = "Thomas Nowak", email = "thomas@thomasnowak.net"}
-]
+authors = [{ name = "Thomas Nowak", email = "thomas@thomasnowak.net" }]
+maintainers = [{ name = "Thomas Nowak", email = "thomas@thomasnowak.net" }]
 description = "A Python package that can multiply"
 readme = "README.md"
-license = {file = "LICENSE"}
+license = { file = "LICENSE" }
 keywords = ["multiplication", "numbers"]
 classifiers = [
   "Development Status :: 4 - Beta",
-  "Programming Language :: Python"
+  "Programming Language :: Python",
 ]
 
 [tool.hatch.metadata.hooks.requirements_txt]
@@ -26,6 +22,10 @@ files = ["requirements.txt"]
 
 [tool.hatch.version]
 source = "vcs"
+
+[tool.pyright]
+venvPath = "."
+venv = "venv"
 
 [tool.ruff]
 line-length = 120
@@ -564,18 +564,8 @@ select = [
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"**/examples/*" = [
-  "INP001",
-  "T201",
-]
-"**/tests/**/*" = [
-  "INP001",
-  "PLC1901",
-  "PLR2004",
-  "PLR6301",
-  "S",
-  "TID252",
-]
+"**/examples/*" = ["INP001", "T201"]
+"**/tests/**/*" = ["INP001", "PLC1901", "PLR2004", "PLR6301", "S", "TID252"]
 
 [tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all"
