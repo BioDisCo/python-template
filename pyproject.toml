@@ -45,8 +45,6 @@ select = [
   "ARG004",
   "ARG005",
   "ASYNC100",
-  "ASYNC101",
-  "ASYNC102",
   "B002",
   "B003",
   "B004",
