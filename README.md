@@ -94,3 +94,143 @@ A template repository for Python development
     ```
 
 11. Commit and push your code, then check result of GitHub actions.
+
+
+## Random info
+
+### To update a Python version
+
+1) download, via brew (in the terminal) the version needed 
+    ```
+    brew install python@3.12
+    ```
+
+2) check if good version
+   ```
+    python --version
+    ```
+    or
+    ```
+    python3.12 --version
+    ```
+
+3) to obtain the list of the libraries inside the old environment :
+    ```
+    pip freeze > requirements.txt
+    ```
+
+4) To create a new environment inside VSCode 
+    - first delete the old environment
+    - use command line to create a new environement with the Python version needed :
+      ```
+      python3.12 -m venv .venv 
+      ```
+        where here ".venv" is the name of the environment
+    - activate the environment :
+      ```
+      source .venv/bin/activate
+      ```
+    - put the "requirement.txt" file INSIDE the folder of the code and import the old librairies
+      ```
+      pip3 install -r requirements.txt
+      ```
+    - finally check if the Python version is the good one 
+      ```
+      python --version
+      ```
+
+
+### To remove some files on Git
+
+For example : DS_Store
+
+1) Open the terminal, and select the path and the GitHub folder
+
+2) Check on "GitHub Desktop" if the folder is sync with GitHub (and do it previously otherwise)
+
+3) Remove the file wanted, from Git (but no physical deletion on the PC) - here .DS_Store is the name of the file -> To change
+	•	rm : commande to delete files of the Git index
+	•	--cached : commande to delete files of the Git index, not on the hardisk
+   ```
+   git rm --cached .DS_Store
+   ```
+
+4) Confirme the deletion of the file 
+   ``` 
+   git status
+   ```
+    -> We should have a message of this kind :
+    Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    .DS_Store
+
+5) Save the modifications in Git history (change the message between "" to match the modification)
+   ```
+   git commit -m "Remove .DS_Store file from repository"
+   ```
+
+6) Open GitHub Desktop, and select "Fetch History"
+
+7) Add the ".DS_Store" mention inside the ".gitignore" file
+
+
+### To update a library (GitHub and also PyPi)
+
+1) If the version in GitHub is not the one that is available locally (updated by another user) -> needs to be actualised
+    -> (to set the "pull" command to "merge" the local version [if we made modifications or not], and the online one, globally (= by default))
+      ```
+      git config pull.rebase false --global
+      ```
+   Then 
+   ```
+   git pull 
+   ```
+
+2) To commit all & add a message 
+   ```
+   git commit -a -m "write the comment here"
+   ```
+
+3) Add a tag (= version, readable by PyPi)
+   ```
+   git tag v0.0.4 
+   ```
+   (here nb of the version wanted)
+
+4) Push both (code and tags) on Git
+   ```
+   git push
+   git push --tags
+   ```
+
+5) Remove the old version on PyPi first (won't allow to add the file on another one) (dist folder)
+   ```
+   rm -rf dist 
+   ```
+
+6) Construct the "environment" for PyPi
+   ```
+   hatch build
+   ```
+
+7) Publish on PyPi 
+   ```
+   hatch publish
+   ```
+
+
+/!\ Need to "log in" via API token (easiest way) -> settings of the account and "Create API token"
+/!\ The token code will appear only ONCE, so save it somewhere /!\
+It will be asked when using "hatch publish" :
+    username = "__token__" (2 underscores to fill)
+    password = token code given 
+
+
+
+### To open / modify inside the folder 
+
+It will open the whole folder in VSCode
+   ```
+   code .
+   ```
+command S to save
