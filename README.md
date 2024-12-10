@@ -234,3 +234,8 @@ It will open the whole folder in VSCode
    code .
    ```
 command S to save
+
+Pay attention of the format of the files used, if there is a format problem :
+   ```
+   ruff format
+   ```
